@@ -8,9 +8,7 @@ export default function Servicio() {
             <div className="items-servicio bounceInUp">
               <div className="box">
                 <div className="icon">
-                  <i className="price-tag material-icons">
-                    local_offer
-                  </i>
+                  <i className="price-tag material-icons">local_offer</i>
                 </div>
                 <h4 className="title">
                   <a href="">Precios Justos</a>
@@ -24,17 +22,14 @@ export default function Servicio() {
             <div className="items-servicio bounceInUp">
               <div className="box">
                 <div className="icon">
-                  <i className="gear-tag material-icons">
-                    settings
-                  </i>
+                  <i className="gear-tag material-icons">settings</i>
                 </div>
                 <h4 className="title">
                   <a href="">Soporte y Atención</a>
                 </h4>
                 <p className="description">
                   Optimizamos continuamente con mejoras nuestro aplicativo móvil y contamos
-                  con especialistas a tu disposición. Soporte las 24/7 Atendemos todos las 24 horas del dia,
-                  todos los dias de la semana y los 365 dias del año.
+                  con especialistas a tu disposición. Soporte las 24/7 Atendemos todos las 24 horas del dia, todos los dias de la semana y los 365 dias del año.
                 </p>
               </div>
             </div>
@@ -42,34 +37,26 @@ export default function Servicio() {
             <div className="items-servicio bounceInUp">
               <div className="box">
                 <div className="icon">
-                  <i className="check-tag material-icons">
-                    check_circle
-                  </i>
+                  <i className="check-tag material-icons">check_circle</i>
                 </div>
                 <h4 className="title">
-                  <a href="">Calidad en cada viaje</a>
+                  <a href="">Experiencia y confianza en cada trayecto</a>
                 </h4>
                 <p className="description">
-                  Nuestros conductores cuentan con entrevistas psicológicas, antecedentes
-                  penales policiales y judiciales. Además se caracterizan por tener un trato amable con
-                  nuestros usuarios y ser muy profesionales en cada viaje.
+                  Nuestros conductores pasan por rigurosas evaluaciones psicológicas y verificaciones de antecedentes penales. Ofrecen un trato amable y profesional en cada viaje.
                 </p>
               </div>
             </div>
             <div className="items-servicio bounceInUp">
               <div className="box">
                 <div className="icon">
-                  <i className="compose-tag material-icons">
-                    edit_note
-                  </i>
+                  <i className="compose-tag material-icons">edit_note</i>
                 </div>
                 <h4 className="title">
                   <a href="">Garantía y Calidad</a>
                 </h4>
                 <p className="description">
-                  Trabajamos para tu satisfacción. Pide Aló Taxi hoy y descubre por qué
-                  nuestros clientes respaldan nuestro servicio. Brindamos Calidad, Seguridad, salubridad y
-                  experiencia que nos mantiene 25 años en el mercado.
+                  Como suscriptor, tendrás acceso a una calidad sin igual en nuestros servicios de taxis. Podrás disfrutar de vehículos bien mantenidos, limpios y cómodos, así como de conductores profesionales y corteses que se esfuerzan por brindarte la mejor experiencia posible.
                 </p>
               </div>
             </div>
@@ -78,16 +65,13 @@ export default function Servicio() {
               style={{ visibility: 'visible', animationDuration: '1.4s', animationDelay: ' 0.2s', animationName: 'bounceInUp' }}>
               <div className="box">
                 <div className="icon">
-                  <i className="location-tag material-icons">
-                    location_on
-                  </i>
+                  <i className="location-tag material-icons">location_on</i>
                 </div>
                 <h4 className="title">
-                  <a href="">Servicios al Aeropuerto</a>
+                  <a href="">Viajes interurbanos sin preocupaciones</a>
                 </h4>
                 <p className="description">
-                  Traslados y recojos del Aeropuerto a cualquier parte de la ciudad de
-                  Lima, con los mejores conductores, para viajar tranquilo y seguro.
+                  Explora diferentes destinos con total tranquilidad. Nuestros taxis autorizados para viajes interurbanos te brindan la libertad de descubrir nuevas ciudades sin contratiempos.
                 </p>
               </div>
             </div>
@@ -95,16 +79,13 @@ export default function Servicio() {
               style={{ visibility: 'visible', animationDuration: '1.4s', animationDelay: ' 0.2s', animationName: 'bounceInUp' }}>
               <div className="box">
                 <div className="icon">
-                  <i className="medical-tag material-icons">
-                    medical_services
-                  </i>
+                  <i className="medical-tag material-icons">medical_services</i>
                 </div>
                 <h4 className="title">
-                  <a href="">Protocolo COVID</a>
+                  <a href="">Viajes cómodos y saludables</a>
                 </h4>
                 <p className="description">
-                  Vehículos desinfectados después de cada viaje, cabinas aisladoras,
-                  mascarillas KN-95 y gel desinfectante para nuestros usuarios.
+                  Cuidamos de ti durante tus desplazamientos. Nuestros taxis ofrecen un ambiente limpio y confortable, priorizando tu bienestar. Disfruta de viajes libres de estrés, donde tu salud y comodidad están siempre en primer lugar.
                 </p>
               </div>
             </div>

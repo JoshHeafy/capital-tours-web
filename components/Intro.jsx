@@ -18,23 +18,23 @@ export default function Intro() {
                         <div className="tab-body-layer">
                           <div className="body-layer">
                             <div className="body-sub-layer">
-                              <p className="body-layer-text">Conduce en la plataforma que tiene la mayor
-                                cantidad de usuarios&nbsp;activos.</p>
+                              <p className="body-layer-text">
+                                Conduce en la empresa que tiene la mayor cantidad de usuarios&nbsp;activos.
+                              </p>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div className="footer-tab">
                         <div className="content-footer">
-                          <a href="https://drivers.uber.com/" className="button-2">
-                            Regístrate para conducir
+                          <a href="/contactanos" className="button-2">
+                            Empezar ahora
                           </a>
                           <div className="text_link">
-                            <a href="https://www.uber.com/pe/es/drive/" className="a">
+                            <a href="/nosotros" className="a">
                               <div className="text_link_container">
                                 <span className="text_sub_link">
-                                  Conoce más sobre cómo
-                                  conducir y hacer entregas
+                                  Conoce más sobre cómo conducir con nosotros
                                 </span>
                               </div>
                             </a>
