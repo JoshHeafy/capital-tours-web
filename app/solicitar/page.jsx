@@ -4,9 +4,8 @@ export default function page() {
   return (
     <>
       <div class="contact_form">
-
         <div class="formulario">
-          <h1 class="form_title">Formulario de contacto</h1>
+          <h1 class="form_title">Registre su solicitud</h1>
           <h3 class="form_subtitle">Escríbenos y en breve los pondremos en contacto contigo</h3>
           <form>
             <p>
@@ -53,10 +52,6 @@ export default function page() {
                 <p>Enviar</p>
               </button>
             </div>
-            {/* <p class="aviso">
-              <span class="obligatorio"> * </span>
-              los campos son obligatorios.
-            </p> */}
           </form>
         </div>
       </div>

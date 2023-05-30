@@ -1,7 +1,11 @@
+import AppMovil from "@/components/AppMovil";
+import Footer from "@/components/Footer";
+
 export default function page() {
   return (
     <>
-      <h3>Descargas</h3>
+      <AppMovil/>
+      <Footer/>
     </>
   )
 }

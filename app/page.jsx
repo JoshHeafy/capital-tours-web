@@ -22,11 +22,11 @@ export default function Home() {
   }, []);
   return (
     <main>
-      <Intro />
-      <Servicio />
-      <Conductor />
-      <AppMovil />
-      <Footer />
+      <Intro/>
+      <Servicio/>
+      <Conductor/>
+      <AppMovil/>
+      <Footer/>
     </main>
   )
 }

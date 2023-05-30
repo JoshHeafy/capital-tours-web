@@ -1,7 +1,11 @@
+import Footer from "@/components/Footer";
+import Servicio from "@/components/Servicio";
+
 export default function page() {
   return (
     <>
-      <h3>Servicios</h3>
+      <Servicio/>
+      <Footer/>
     </>
   )
 }

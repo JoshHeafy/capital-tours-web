@@ -27,10 +27,10 @@ export default function Intro() {
                       </div>
                       <div className="footer-tab">
                         <div className="content-footer">
-                          <a href="/contactanos" className="button-2">
+                          <a href="/solicitar" className="button-2">
                             Empezar ahora
                           </a>
-                          <div className="text_link">
+                          {/* <div className="text_link">
                             <a href="/nosotros" className="a">
                               <div className="text_link_container">
                                 <span className="text_sub_link">
@@ -38,7 +38,7 @@ export default function Intro() {
                                 </span>
                               </div>
                             </a>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>

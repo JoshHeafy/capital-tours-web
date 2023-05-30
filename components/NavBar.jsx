@@ -5,17 +5,14 @@ import { useState } from "react";
 export default function NavBar() {
 
   const [movilMenuOpen, setMovilMenuOpen] = useState(false);
-  const [movilAction, setMovilAction] = useState('#id-menu');
   const [movilMenuIcon, setMovilMenuIcon] = useState('menu');
   const [selected, setSelected] = useState(null);
 
   const menuMovilClick = () => {
     setMovilMenuOpen(!movilMenuOpen);
     if (movilMenuOpen) {
-      setMovilAction('#');
       setMovilMenuIcon('menu');
     } else {
-      setMovilAction('#id-menu');
       setMovilMenuIcon('close');
     }
   };
@@ -36,11 +33,11 @@ export default function NavBar() {
         <div className="head-container">
           <div className="container__item">
             <div className="item__button_menu">
-              <Link href={movilAction} className="item-button-menu__href" onClick={menuMovilClick}>
+              <a className="item-button-menu__href" onClick={menuMovilClick}>
                 <div className="item-button-menu__container">
                   <i className="material-icons">{movilMenuIcon}</i>
                 </div>
-              </Link>
+              </a>
             </div>
             <Link href="/" onClick={() => setSelected(null)} className="item__logo">
               <img className="logo__img" src="/img/logo.png" alt="logo"></img>
@@ -65,7 +62,7 @@ export default function NavBar() {
                     className={selected === 2 ? "li__text active" : "li__text"}>Descargas</Link>
                 </li>
                 <li className="ul__li">
-                  <Link href="/contactanos" onClick={() => {activeBar(3), menuMovilClose()}}
+                  <Link href="/solicitar" onClick={() => {activeBar(3), menuMovilClose()}}
                     className={selected === 3 ? "li__text active" : "li__text"}>Contáctanos</Link>
                 </li>
                 <li className="ul__li">
