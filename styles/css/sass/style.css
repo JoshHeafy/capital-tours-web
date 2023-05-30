@@ -1379,7 +1379,7 @@
 .section-4 .container-semiCirculo {
   display: flex;
   justify-content: flex-end;
-  height: 40vh;
+  height: 50vh;
 }
 .section-4 .container-semiCirculo .semi-circulo {
   width: 50%;
