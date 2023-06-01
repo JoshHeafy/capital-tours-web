@@ -29,7 +29,7 @@ export default function AppMovil() {
                 Descarga nuestra App ahora!!
               </p>
               <div className="button_download">
-                <a href="/descargas" className="button-2">
+                <a href="/downloads/capital-tours.apk" download="capital-tours.apk" className="button-2">
                   Descargar
                 </a>
               </div>

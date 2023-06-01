@@ -63,19 +63,15 @@ export default function NavBar() {
                 </li>
                 <li className="ul__li">
                   <Link href="/solicitar" onClick={() => {activeBar(3), menuMovilClose()}}
-                    className={selected === 3 ? "li__text active" : "li__text"}>Contáctanos</Link>
+                    className={selected === 3 ? "li__text active" : "li__text"}>Solicitar</Link>
                 </li>
                 <li className="ul__li">
-                  <Link href="/conductores" onClick={() => {activeBar(4), menuMovilClose()}}
-                    className={selected === 4 ? "li__text active" : "li__text"}>Conductores</Link>
+                  <Link href="/servicios" onClick={() => {activeBar(4), menuMovilClose()}}
+                    className={selected === 4 ? "li__text active" : "li__text"}>Servicios</Link>
                 </li>
                 <li className="ul__li">
-                  <Link href="/servicios" onClick={() => {activeBar(5), menuMovilClose()}}
-                    className={selected === 5 ? "li__text active" : "li__text"}>Servicios</Link>
-                </li>
-                <li className="ul__li">
-                  <Link href="/requisitos" onClick={() => {activeBar(6), menuMovilClose()}}
-                    className={selected === 6 ? "li__text active" : "li__text"}>Requisitos</Link>
+                  <Link href="/requisitos" onClick={() => {activeBar(5), menuMovilClose()}}
+                    className={selected === 5 ? "li__text active" : "li__text"}>Requisitos</Link>
                 </li>
               </ul>
             </nav>
