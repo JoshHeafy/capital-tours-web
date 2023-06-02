@@ -26,13 +26,12 @@ export default function page() {
 
           <h3 class="contact-heading">Contáctanos</h3>
           <p class="contact-description">Si estás interesado en nuestras suscripciones de vehículos para taxi en Huancayo, no dudes en contactarnos...</p>
-          <p class="contact-info">Dirección: [Incluir la dirección de la empresa en Huancayo, Perú]<br />
-            Teléfono: [Incluir el número de teléfono de la empresa]<br />
-            Correo Electrónico: [Incluir la dirección de correo electrónico de la empresa]<br />
-            Horario de Atención: [Incluir los horarios de atención al cliente]</p>
+          <p class="contact-info">Dirección: Av. Mariscal Castilla & Av. Gral. Cordova Huancayo, Perú<br />
+            Teléfono: 914354014<br />
+            Horario de Atención: 8:30 am - 7:00 pm </p>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </>
   )
 }
