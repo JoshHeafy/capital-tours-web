@@ -1,5 +1,7 @@
 'use client'
 import Footer from "@/components/Footer";
+import { API } from "@/library/api";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function page() {
@@ -10,10 +12,23 @@ export default function page() {
     asunto: '',
     mensaje: '',
   });
+  const [visibleError, setVisibleError] = useState(false);
+  const router = useRouter();
 
-  const enviarSolicitud = (event) => {
+  const enviarSolicitud = async (event) => {
     event.preventDefault();
-    console.log(interaction);
+    const data = interaction;
+    try {
+      await API('solicitudes/create', {data, method: "POST"}).then((resp) => {
+        if (resp.idsolicitudes) {
+          router.push('/');
+        }else{
+          console.log('Error');
+        }
+      });
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
@@ -86,6 +101,7 @@ export default function page() {
                 required
                 placeholder="Deja aquí tu comentario..."></textarea>
             </p>
+            {visibleError && <p style={{color: 'red'}}>Ha ocurrido un error, verifique sus datos</p>}
             <div className="container_button_contact">
               <button className="button-2" type="submit">
                 <p>Enviar</p>

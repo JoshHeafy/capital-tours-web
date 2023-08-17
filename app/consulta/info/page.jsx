@@ -68,17 +68,17 @@ export default function info() {
                 <div className="list-group-item">
                   <div className="row">
                     <div className="row-col">
-                      <p className="item-heading">Fecha de próximo pago:</p>
+                      <p className="item-heading">Monto a pagar:</p>
                     </div>
                     <div className="row-col">
                       <p className="item-heading">
-                       
+                        S/. {data.monto}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="list-group-item">
+                {/*<div className="list-group-item">
                   <div className="row">
                     <div className="row-col">
                       <p className="item-heading">Monto:</p>
@@ -89,7 +89,7 @@ export default function info() {
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* <div className="list-group-item activo">
                   <div className="row">
