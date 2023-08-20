@@ -1,17 +1,6 @@
-// export async function getAuthToken(email, pass) {
-//   const response = await fetch('http://localhost:5000/auth/login', {
-//     method: 'PUT',
-//     body: JSON.stringify({email, pass}),
-//   });
-//   const data = await response.json();
-//   if (response.status === 200) {
-//     return data.data;
-//   }else{
-//     throw new Error(data.msg);
-//   }
-// }
 import axios from "axios";
 import { launcherNotification } from "./functions";
+import Cookies from "js-cookie";
 /**
  * Genera una petición Http mediante Axios
  * @param {string} url : url de la petición
@@ -29,10 +18,9 @@ export async function API(url, config = {}) {
     functionResp = false,
     alert_error = true,
     headers = {},
-    // base = sessionStorage.getItem("url_base"),
+    token = true,
+    // base = "http://localhost:5000";
     base = "https://api-capital-tours.onrender.com";
-  // base = "http://localhost:5000",
-  token = true;
 
   if (config.data) data = config.data;
   url = !config.url_base ? base + "/" + url : config.url_base + "/" + url;
@@ -43,16 +31,8 @@ export async function API(url, config = {}) {
   if (config.functionResp) functionResp = config.functionResp;
   if (config.token) token = false;
   if (token == true) {
-    headers["Access-Token"] = sessionStorage.getItem("token")
-      ? sessionStorage.getItem("token")
-      : "";
+    headers["Access-Token"] = Cookies.get("token") ? Cookies.get("token") : "";
   }
-  // if (token == true) {
-  // 	const headers = {
-  // 		'Access-Token': (sessionStorage.getItem("token")) ? sessionStorage.getItem("token") : "",
-  // 	  'Cookie': `cookie-token=${sessionStorage.getItem("cookie-token")}` // Agregar cookie en headers
-  // 	}
-  // }
   if (config.auth_date) {
     headers["Auth-Date"] = getDateString();
   }
@@ -97,15 +77,12 @@ export async function API(url, config = {}) {
           }
           if (response.status == undefined) {
             response.responseText = "Error de Conexión con el Servidor";
-            sessionStorage.clear();
             launcherNotification(response, false);
           } else if (response.status == null) {
             response.responseText = "Error de Conexión";
-            sessionStorage.clear();
             launcherNotification(response, false);
           } else if (response.status == 404) {
             response.responseText = "Se perdió la session";
-            sessionStorage.clear();
             launcherNotification(response, false);
           } else if (response.status == 409) {
             let resp = objectResponse.response.data;

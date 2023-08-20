@@ -1,48 +1,41 @@
-'use client'
+"use client";
 import { API } from "@/library/api";
-import { useState } from "react"
-import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import MyButton from "@/components/buttons/MyButton";
+import MyInputPlaca from "@/components/inputs/MyInputPlaca";
 
 export default function page() {
-  const [alertaError, setAlertaError] = useState(false);
-  const [interaction, setInteraction] = useState({
-    placa: false,
-    documento: true
-  });
-  const [documentoValue, setDocumentoValue] = useState("");
+  const [numeroPlaca, setNumeroPlaca] = useState("");
+  const [load, setLoad] = useState(false);
   const router = useRouter();
 
-
-  function switchPlaca() {
-    setInteraction({ ...interaction, placa: interaction.placa = false });
-    setInteraction({ ...interaction, documento: interaction.documento = true });
-  }
-  function switchDocumento() {
-    setInteraction({ ...interaction, placa: interaction.placa = true });
-    setInteraction({ ...interaction, documento: interaction.documento = false });
-  }
-
-  const consultar = async (event) => {
-    event.preventDefault();
-
-    try {
-      const resp = await API(`propietarios/info/${documentoValue}`);
-      if (resp.detalleInscripcion.placa) {
+  const consultar = async () => {
+    if (numeroPlaca.length == 0) {
+      toast.warning("Ingrese su número de placa");
+    } else {
+      console.log(numeroPlaca);
+      setLoad(true);
+      const resp = await API(
+        `propietarios/consulta-web/${numeroPlaca.toUpperCase()}`
+      );
+      if (resp.inscripcion) {
         console.log(resp);
-        var data = JSON.stringify(resp.detalleInscripcion);
+        var data = JSON.stringify(resp);
         router.push(`/consulta/info?data=${data}`);
       } else {
-        setAlertaError(true);
+        console.log("no bai");
+        setLoad(false);
+        setNumeroPlaca("");
       }
-    } catch (e) {
-      console.error(e);
     }
   };
 
-
-
   return (
     <>
+      <ToastContainer limit={3} />
       <div className="container-consulta">
         <div className="row-consulta">
           <div className="offset">
@@ -54,58 +47,32 @@ export default function page() {
               <div className="panel-body">
                 <div className="text-center divBotonesFiltro text-nowrap">
                   <div role="group" className="btn-group">
-                    {/* <button className="btn" type="button" onClick={() => switchDocumento()}>
-                      Por Placa
-                    </button> */}
-                    <button className="btn" type="button" onClick={() => switchPlaca()}>
-                      Documento(DNI)
+                    <button className="btn" type="button">
+                      Numero de Placa
                     </button>
                   </div>
                 </div>
-                <form className="form-horizontal" id="form01" onSubmit={consultar}>
+                <form className="form-horizontal">
                   <div className="form-group divCriterioBusqueda">
-                    {/* <div className="offset divConsultaCampo" id="consulta_por_placa"
-                      style={{ display: interaction.placa ? 'inline-block' : 'none' }}>
-                      <input
-                        type="tel"
-                        className="form-control"
-                        id="txtRuc"
-                        name="search1"
-                        placeholder="Ingrese numero de placa"
-                        value={placaValue}
-                        onChange={(e) => setPlacaValue(e.target.value)}
+                    <div
+                      className="form-control divConsultaCampo"
+                      id="consulta_por_documento"
+                    >
+                      <MyInputPlaca
+                        value={numeroPlaca}
+                        onChange={(value) => setNumeroPlaca(value)}
                       />
-                    </div> */}
-                    <div className="form-control divConsultaCampo" id="consulta_por_documento"
-                      style={{ display: interaction.documento ? 'inline-block' : 'none' }}>
-                      {/* <select name="tipdoc" className="form-control" defaultValue='1'>
-                        <option value="1">Documento Nacional de Identidad</option>
-                        <option value="4">Carnet de Extranjeria</option>
-                        <option value="7">Pasaporte</option>
-                        <option value="A">Ced. Diplomática de Identidad</option>
-                      </select> */}
-                      <input
-                        className="form-control"
-                        type="text"
-                        id="cat1"
-                        required
-                        value={documentoValue}
-                        onChange={(e) => setDocumentoValue(e.target.value)}
-                      />
-                      {alertaError && <div style={{ color: 'red' }}>
-                        <p>Cliente no encontrado</p>
-                      </div>}
-                      <p id="total"></p>
                     </div>
                   </div>
+                  <br />
                   <div className="form-group">
-                    <div className="col-sm-12 text-center">
-                      <button
-                      type="submit"
-                        // onClick={() => consultar()}
-                        className="btn btn-primary">
-                        Buscar
-                      </button>
+                    <div className="text-center">
+                      <MyButton
+                        name="Buscar"
+                        type="button"
+                        load={load}
+                        onClick={() => consultar()}
+                      />
                     </div>
                   </div>
                 </form>
@@ -114,9 +81,11 @@ export default function page() {
           </div>
         </div>
         <div className="footer-consulta">
-          <p><small>© 2023 CapitalTours Derechos Reservados</small></p>
+          <p>
+            <small>© 2023 CapitalTours Derechos Reservados</small>
+          </p>
         </div>
       </div>
     </>
-  )
+  );
 }

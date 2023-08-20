@@ -1,3 +1,5 @@
+@import ../app/_colors
+
 .container-consulta
     width: 1170px
     padding-right: 15px
@@ -17,22 +19,20 @@
             font-size: 1.7em
             margin-top: 20px
             margin-bottom: 10px
-            font-family: inherit
             font-weight: 500
             line-height: 1.1
             color: inherit
         .panel
             margin-bottom: 20px
-            background-color: #fff
+            background-color: var(--color-white)
             border: 1px solid transparent
             border-radius: 4px
-            box-shadow: 0 1px 1px rgba(0,0,0,.05)
+            box-shadow: 0 1px 1px var(--box-shadow)
         .panel-primary
-            border-color: rgba(109,213,163,1)
+            border-color: var(--color-primary)
             >.panel-heading
-                color: #fff
-                background-color: rgba(109,213,163,1)
-                border-color: rgba(109,213,163,1)
+                color: var(--color-white)
+                background-color: var(--color-primary)
             .panel-heading
                 padding: 10px 15px
                 border-bottom: 1px solid transparent
@@ -79,24 +79,6 @@
                             background-image: none
                             border: 1px solid transparent
                             border-radius: 4px
-                        .btn-default
-                            color: #333
-                            background-color: #fff
-                            border-color: #ccc
-                            &:hover
-                                color: #333
-                                background-color: #e6e6e6
-                                border-color: #adadad
-                            &.active
-                                background-image: none
-                                color: #333
-                                background-color: #e6e6e6
-                                border-color: #adadad
-                        .btn.active
-                            outline: 0
-                            box-shadow: inset 0 3px 5px rgba(0,0,0,.125)
-                        .btnPor
-                            font-size: 0.7em
                 .form-horizontal
                     .form-group
                         margin-right: -15px
@@ -134,22 +116,23 @@
                             margin-bottom: 10px
                             font-size: 14px
                             line-height: 1.42857143
-                            color: #555
-                            background-color: #fff
-                            background-image: none
-                            border: 1px solid #ccc
+                            color: var(--color-dark)
+                            background-color: var(--color-white)
+                            border: 1px solid var(--color-info-light)
                             border-radius: 4px
-                            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075)
-                            box-shadow: inset 0 1px 1px rgba(0,0,0,.075)
+                            -webkit-box-shadow: inset 0 1px 1px var(--box-shadow)
+                            box-shadow: inset 0 1px 1px var(--box-shadow)
                             -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s
                             -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
                             transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
-                        select
-                            option:hover
-                                background-color: #4ab511
+                            &:focus
+                                outline: 0
+                                border: 2px solid var(--color-primary)
                     .text-center
                         width: 100%
+                        display: flex
                         text-align: center
+                        justify-content: center
     .footer-consulta
         text-align: center
 @media only screen and (max-width: 768px)

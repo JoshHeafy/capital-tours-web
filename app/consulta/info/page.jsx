@@ -1,12 +1,30 @@
-'use client'
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+"use client";
+import MyButton from "@/components/buttons/MyButton";
+import { toCapitalice } from "@/library/functions";
+import { useSearchParams, useRouter } from "next/navigation";
 export default function info() {
+  const router = useRouter();
   const searchParams = useSearchParams();
-  const search = searchParams.get('data');
+  const search = searchParams.get("data");
   const data = JSON.parse(search);
 
-  const estado = data.estado == 1 ? 'ACTIVO' : data.estado == 0 ? 'INACTIVO' : '';
+  const inscripcion = data.inscripcion;
+  const periodo = data.periodo_inscripcion;
+  const propietario = data.propietario;
+  const status_pago = data.status_pago;
+
+  const estado =
+    periodo[0].estado == 1
+      ? "ACTIVO"
+      : periodo[0].estado == 0
+      ? "TIENE UN PAGO PRÓXIMO"
+      : "TIENE UN PAGO ATRASADO";
+  const colorEstado =
+    periodo[0].estado == 1
+      ? "#41f1b6"
+      : periodo[0].estado == 0
+      ? "#ffbb55"
+      : "#ff7782";
 
   return (
     <>
@@ -25,22 +43,22 @@ export default function info() {
                       <p className="item-heading">Numero de Placa:</p>
                     </div>
                     <div className="row-col">
-                      <p className="item-heading">{data.placa.toUpperCase()}</p>
+                      <p className="item-heading">
+                        {inscripcion.numero_placa.toUpperCase()}
+                      </p>
                     </div>
                   </div>
                 </div>
-
                 <div className="list-group-item">
                   <div className="row">
                     <div className="row-col">
-                      <p className="item-heading">Fecha de inscripción:</p>
+                      <p className="item-heading">Numero de Flota:</p>
                     </div>
                     <div className="row-col">
-                      <p className="item-heading">{data.periodo}</p>
+                      <p className="item-heading">{inscripcion.numero_flota}</p>
                     </div>
                   </div>
                 </div>
-
                 <div className="list-group-item">
                   <div className="row">
                     <div className="row-col">
@@ -48,91 +66,61 @@ export default function info() {
                     </div>
                     <div className="row-col">
                       <p className="item-heading">
-                        {data.numerodocumento} - {data.nombrepropietario.toUpperCase()}
+                        {toCapitalice(propietario.nombre_propietario)}
                       </p>
                     </div>
                   </div>
                 </div>
-
                 <div className="list-group-item">
                   <div className="row">
                     <div className="row-col">
                       <p className="item-heading">Estado del servicio:</p>
                     </div>
                     <div className="row-col">
-                      <p className="item-heading">{estado}</p>
+                      <span
+                        className="status-mark"
+                        style={{
+                          background: colorEstado,
+                        }}
+                      >
+                        {estado}
+                      </span>
                     </div>
                   </div>
                 </div>
-
                 <div className="list-group-item">
                   <div className="row">
                     <div className="row-col">
                       <p className="item-heading">Monto a pagar:</p>
                     </div>
                     <div className="row-col">
-                      <p className="item-heading">
-                        S/. {data.monto}
-                      </p>
+                      <p className="item-heading">S/. {inscripcion.importe}</p>
                     </div>
                   </div>
                 </div>
-
-                {/*<div className="list-group-item">
-                  <div className="row">
-                    <div className="row-col">
-                      <p className="item-heading">Monto:</p>
-                    </div>
-                    <div className="row-col">
-                      <p className="item-heading">
-                       
-                      </p>
-                    </div>
-                  </div>
-                </div> */}
-
-                {/* <div className="list-group-item activo">
-                  <div className="row">
-                    <div className="row-col">
-                      <p className="item-heading">Pagos:</p>
-                    </div>
-                    <div className="row-col">
-                      <p className="item-heading">Al día con los pagos de sus tributos</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="list-group-item noactivo">
-                  <div className="row">
-                    <div className="row-col">
-                      <p className="item-heading">Pagos:</p>
-                    </div>
-                    <div className="row-col">
-                      <p className="item-heading">No esta al dia con sus tributos</p>
-                    </div>
-                  </div>
-                </div>
-
                 <div className="list-group-item">
                   <div className="row">
                     <div className="row-col">
-                      <p className="item-heading">Proximo Pago:</p>
+                      <p className="item-heading">Próxima fecha de pago:</p>
                     </div>
                     <div className="row-col">
-                      <p className="item-heading">04/08/2023</p>
+                      <p className="item-heading">{status_pago.proximo_pago}</p>
                     </div>
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
             <div className="btn-container">
-              <Link href="/consulta" className="btn-back">
-                Regresar
-              </Link>
+              <MyButton
+                black={true}
+                name="Regresar"
+                type="button"
+                onClick={() => router.push("/consulta")}
+              />
             </div>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }

@@ -1,3 +1,5 @@
+@import ../app/_colors
+
 .section-servicios
     padding: 130px 0 40px 0
     box-shadow: inset 0px 0px 12px 0px rgb(0 0 0 / 10%)
@@ -14,7 +16,7 @@
         margin-left: auto
         .section-header
             font-size: 3rem
-            color: #283d50
+            color: var(--color-dark-variant)
             text-align: center
             font-weight: 800
             margin-bottom: 1rem
@@ -36,7 +38,7 @@
             overflow: hidden
             border-radius: 10px
             margin: 0 10px 40px 10px
-            background: #fff
+            background: var(--color-white)
             box-shadow: 0 10px 29px 0 rgb(68 88 144 / 10%)
             transition: all 0.3s ease-in-out
             &:hover
@@ -44,7 +46,7 @@
                 transform: translateY(-5px)
                 .title
                     > a
-                        color: #17b841
+                        color: var(--color-success)
             .icon
                 position: absolute
                 left: -10px
@@ -72,7 +74,7 @@
                 margin-bottom: 15px
                 font-size: 18px
                 > a
-                    color: #111
+                    color: var(--color-dark-variant)
                     text-decoration: none
                     background-color: transparent
                     transition: 0.5s

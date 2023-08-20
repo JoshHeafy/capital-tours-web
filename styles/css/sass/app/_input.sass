@@ -1,0 +1,57 @@
+@import ./_colors
+
+.my_input
+  input
+    background-color: var(--color-white)
+    width: 408px
+    height: 40px
+    border-radius: 5px
+    border-style: solid
+    border-width: 1px
+    border-color: var(--color-info-light)
+    margin-top: 10px
+    padding-left: 10px
+    &:focus
+      outline: 0
+      border: 2px solid var(--color-primary)
+  textarea
+    background-color: var(--color-white)
+    width: 405px
+    height: 100px
+    border-radius: 5px
+    border-style: solid
+    border-width: 1px
+    border-color: var(--color-info-light)
+    margin-top: 10px
+    padding-left: 10px
+    margin-bottom: 20px
+    padding-top: 15px
+    &:focus
+      outline: 0
+      border: 2px solid var(--color-primary)
+  .obligatorio
+    color: var(--color-primary)
+    font-weight: bold
+
+::-webkit-input-placeholder
+  color: var(--color-info-light)
+
+::-webkit-textarea-placeholder
+  color: var(--color-info-light)
+
+// inputPlaca
+.input-container
+  display: flex
+  align-items: center
+  .form-control
+    margin-bottom: 0 !important
+  .clear-icon
+    color: var(--color-info-light)
+    position: absolute
+    right: 1.5rem
+    font-size: 1.5rem
+    top: 50%
+    transform: translateY(-50%)
+    cursor: pointer
+    &:hover
+      color: var(--color-primary)

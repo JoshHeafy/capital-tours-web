@@ -12,24 +12,31 @@ export default function AppMovil() {
         <div className="clearfix">
           <div className="container-group">
             <div className="container-layout">
-              <img src="/img/movil/rayon.png" alt="" className="u-image" />
-              <h2 className="text-1">Nueva aplicación movil para conductores</h2>
+              <img src="/img/movil/mancha.png" alt="" className="u-image" />
+              <h2 className="text-1">
+                Nueva aplicación movil para conductores
+              </h2>
               <p className="text-2">
                 Nuestra aplicación móvil revolucionaria ofrece una experiencia
                 completa para conductores. Con solo unos toques en la pantalla,
                 podrás solicitar un conductor de manera conveniente y rápida.
                 Accede a los datos de tu suscripción, consulta tu historial de
                 pagos y verifica los pagos restantes de forma sencilla.
-                Simplifica tu experiencia como conductor y disfruta de todas
-                las funciones necesarias al alcance de tu mano.
-                ¡Descarga nuestra app y lleva el control de tus viajes y pagos de manera eficiente!
+                Simplifica tu experiencia como conductor y disfruta de todas las
+                funciones necesarias al alcance de tu mano. ¡Descarga nuestra
+                app y lleva el control de tus viajes y pagos de manera
+                eficiente!
                 <br />
                 ¿Ya eres conductor?
                 <br />
                 Descarga nuestra App ahora!!
               </p>
               <div className="button_download">
-                <a href="/downloads/capital-tours.apk" download="capital-tours.apk" className="button-2">
+                <a
+                  href="/downloads/capital-tours.apk"
+                  download="capital-tours.apk"
+                  className="my_button_a"
+                >
                   Descargar
                 </a>
               </div>
@@ -38,5 +45,5 @@ export default function AppMovil() {
         </div>
       </section>
     </>
-  )
+  );
 }

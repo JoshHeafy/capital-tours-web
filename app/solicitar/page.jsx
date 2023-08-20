@@ -1,116 +1,171 @@
-'use client'
+"use client";
 import Footer from "@/components/Footer";
+import MyButton from "@/components/buttons/MyButton";
+import MyInput from "@/components/inputs/MyInput";
+import MyInputNumber from "@/components/inputs/MyInputNumber";
 import { API } from "@/library/api";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { newDataGenerate } from "@/library/functions";
 
 export default function page() {
+  const [formIdCreate, setFormIdCreate] = useState("");
+  const [load, setLoad] = useState(false);
   const [interaction, setInteraction] = useState({
-    nombre: '',
-    email: '',
-    telefono: '',
-    asunto: '',
-    mensaje: '',
+    nombre: "",
+    email: "",
+    telefono: "",
+    asunto: "",
+    mensaje: "",
   });
-  const [visibleError, setVisibleError] = useState(false);
-  const router = useRouter();
+  const [visibleError1, setVisibleError1] = useState(false);
+  const [visibleError2, setVisibleError2] = useState(false);
 
-  const enviarSolicitud = async (event) => {
-    event.preventDefault();
-    const data = interaction;
-    try {
-      await API('solicitudes/create', {data, method: "POST"}).then((resp) => {
-        if (resp.idsolicitudes) {
-          router.push('/');
-        }else{
-          console.log('Error');
-        }
-      });
-    } catch (e) {
-      console.error(e);
+  const enviarSolicitud = async (e) => {
+    e.preventDefault();
+    if (!visibleError1 && !visibleError2) {
+      setLoad(true);
+      const result = newDataGenerate(formIdCreate);
+      if (result.status) {
+        await API("solicitudes/create", {
+          data: result.data,
+          method: "POST",
+        })
+          .then((resp) => {
+            setInteraction({
+              nombre: "",
+              email: "",
+              telefono: "",
+              asunto: "",
+              mensaje: "",
+            });
+            setLoad(false);
+            toast.success("Su solicitud se envió correctamente");
+          })
+          .catch((resp) => {
+            setInteraction({
+              nombre: "",
+              email: "",
+              telefono: "",
+              asunto: "",
+              mensaje: "",
+            });
+            setLoad(false);
+          });
+      }
+    }else{
+      toast.warning("Tiene errores en los inputs!");
     }
   };
 
+  const verifyNombre = (val) => {
+    if (val.length < 10) {
+      setVisibleError1(true);
+    } else {
+      setVisibleError1(false);
+    }
+  };
+
+  const verifyMensaje = (val) => {
+    if (val.length < 10) {
+      setVisibleError2(true);
+    } else {
+      setVisibleError2(false);
+    }
+  };
+
+  useEffect(() => {
+    setFormIdCreate("id_" + uuidv4());
+  }, []);
+
   return (
     <>
+      <ToastContainer />
       <div className="contact_form">
         <div className="formulario">
           <h1 className="form_title">Registre su solicitud</h1>
-          <h3 className="form_subtitle">Escríbenos y en breve los pondremos en contacto contigo</h3>
-          <form onSubmit={enviarSolicitud}>
-            <p>
-              <label className="colocar_nombre">Apellidos y Nombres
-                <span className="obligatorio">*</span>
-              </label>
-              <input
-                className="input_contact"
-                type="text"
-                value={interaction.nombre}
-                onChange={(e) => setInteraction({ ...interaction, nombre: e.target.value })}
-                required
-                placeholder="Escribe tus Apellidos y Nombres" />
-            </p>
-
-            <p>
-              <label className="colocar_email">Correo Electronico
-                <span className="obligatorio">*</span>
-              </label>
-              <input
-                className="input_contact"
-                type="email"
-                value={interaction.email}
-                onChange={(e) => setInteraction({ ...interaction, email: e.target.value })}
-                required
-                placeholder="Escribe tu Email" />
-            </p>
-
-            <p>
-              <label className="colocar_telefono">Teléfono
-                <span className="obligatorio">*</span>
-              </label>
-              <input
-                className="input_contact"
-                type="tel"
-                value={interaction.telefono}
-                onChange={(e) => setInteraction({ ...interaction, telefono: e.target.value })}
-                placeholder="Escribe tu teléfono" />
-            </p>
-
-            <p>
-              <label className="colocar_asunto">Asunto
-                <span className="obligatorio">*</span>
-              </label>
-              <input
-                className="input_contact"
-                type="text"
-                value={interaction.asunto}
-                onChange={(e) => setInteraction({ ...interaction, asunto: e.target.value })}
-                required
-                placeholder="Escribe un asunto" />
-            </p>
-
-            <p>
-              <label className="colocar_mensaje">Mensaje
-                <span className="obligatorio">*</span>
-              </label>
-              <textarea
-                name="introducir_mensaje"
-                className="input_mensaje"
-                value={interaction.mensaje}
-                onChange={(e) => setInteraction({ ...interaction, mensaje: e.target.value })}
-                required
-                placeholder="Deja aquí tu comentario..."></textarea>
-            </p>
-            {visibleError && <p style={{color: 'red'}}>Ha ocurrido un error, verifique sus datos</p>}
+          <h3 className="form_subtitle">
+            Escríbenos y en breve los pondremos en contacto contigo
+          </h3>
+          <form onSubmit={enviarSolicitud} id={formIdCreate}>
+            <MyInput
+              title="Apellidos y Nombres"
+              _key="nombre"
+              placeholder="Escribe tus Apellidos y Nombres"
+              value={interaction.nombre}
+              required={true}
+              onChange={(e) => {
+                setInteraction({ ...interaction, nombre: e.target.value });
+                verifyNombre(e.target.value);
+              }}
+            />
+            {visibleError1 && (
+              <p style={{ color: "red", fontSize: "12px" }}>
+                Escriba un nombre largo
+              </p>
+            )}
+            <br />
+            <MyInput
+              title="Correo Electronico"
+              _key="email"
+              type="email"
+              placeholder="Escribe tu Email"
+              value={interaction.email}
+              required={true}
+              onChange={(e) =>
+                setInteraction({ ...interaction, email: e.target.value })
+              }
+            />
+            <br />
+            <MyInputNumber
+              title="Teléfono"
+              _key="telefono"
+              placeholder="Escribe tu teléfono"
+              value={interaction.telefono}
+              max={9}
+              required={true}
+              onChange={(value) =>
+                setInteraction({ ...interaction, telefono: value })
+              }
+            />
+            <br />
+            <MyInput
+              title="Asunto"
+              _key="asunto"
+              placeholder="Escribe un asunto"
+              value={interaction.asunto}
+              required={true}
+              onChange={(e) =>
+                setInteraction({ ...interaction, asunto: e.target.value })
+              }
+            />
+            <br />
+            <MyInput
+              title="Mensaje"
+              _key="mensaje"
+              placeholder="Deja aquí tu comentario..."
+              value={interaction.mensaje}
+              textArea={true}
+              required={true}
+              onChange={(e) => {
+                setInteraction({ ...interaction, mensaje: e.target.value });
+                verifyMensaje(e.target.value);
+              }}
+            />
+            {visibleError2 && (
+              <p style={{ color: "red", fontSize: "12px" }}>
+                Escriba un mensaje largo
+              </p>
+            )}
             <div className="container_button_contact">
-              <button className="button-2" type="submit">
-                <p>Enviar</p>
-              </button>
+              <MyButton name="Solicitar" load={load} black={true} />
             </div>
           </form>
         </div>
       </div>
       <Footer />
     </>
-  )
+  );
 }

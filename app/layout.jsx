@@ -1,10 +1,8 @@
 import NavBar from "@/components/NavBar";
-import { Inter } from "next/font/google";
 import "@/styles/css/sass/style.css";
 import Head from "next/head";
 import "material-icons/iconfont/material-icons.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import "@/public/icons/boxicons-2.1.4/css/boxicons.min.css";
 
 export const metadata = {
   title: "CapitalTours",
@@ -16,8 +14,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head>
         <link rel="shortcut icon" href="@/public/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
       </Head>
-      <body className={inter.className}>
+      <body className>
         <NavBar />
         {children}
       </body>

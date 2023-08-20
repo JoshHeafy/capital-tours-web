@@ -1,3 +1,5 @@
+@import ../app/_colors
+
 .conductor-container
     display: grid
     grid-template-columns: 1fr 1fr
@@ -13,7 +15,7 @@
         max-width: 100%
         margin-bottom: 45px
         h4
-            color: #00dc82
+            color: var(--color-primary)
             margin-bottom: 0
             margin-top: 0
             font-size: 24px
@@ -52,7 +54,6 @@
                         font-weight: 700
                         margin-bottom: 10px
                         &::before
-                            color: #ffc61a
                             content: "\2713 "
                             display: block
                             display: inline-block
@@ -63,7 +64,7 @@
                             -webkit-font-smoothing: antialiased
                             -moz-osx-font-smoothing: grayscale
                             font-weight: 100
-                            color: #00dc82
+                            color: var(--color-primary)
                             position: absolute
                             margin: 2px 0 0 -26px
                             font-size: 27px
@@ -91,7 +92,7 @@
 .animation-block
     margin-top: 5em
     .block
-        background-color: #ffffff
+        background-color: var(--color-white)
         display: -webkit-box
         display: -moz-box
         display: -ms-flexbox
@@ -141,14 +142,14 @@
                 margin-left: auto
                 margin-top: 8rem
                 align-self: flex-start
-                .inner-conatiner
+                .inner-container
                     padding: 64px
                     width: 50%
                     max-width: 100%
                     margin-bottom: 4rem
                     color: inherit
                     border-radius: 15px
-                    background-color: #00dc8247
+                    background-color: var(--color-primary-opacity)
                     .inner-grid
                         grid-column-gap: 36px
                         grid-row-gap: 36px
@@ -163,7 +164,7 @@
                             align-self: center
                             display: grid
                             order: 1
-                            color: #fff
+                            color: var(--color-white)
                             .container-title
                                 margin-bottom: 24px
                                 text-align: left
