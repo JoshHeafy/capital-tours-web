@@ -22,10 +22,11 @@ export default function page() {
   });
   const [visibleError1, setVisibleError1] = useState(false);
   const [visibleError2, setVisibleError2] = useState(false);
+  const [visibleError3, setVisibleError3] = useState(false);
 
   const enviarSolicitud = async (e) => {
     e.preventDefault();
-    if (!visibleError1 && !visibleError2) {
+    if (!visibleError1 && !visibleError2 && !visibleError3) {
       setLoad(true);
       const result = newDataGenerate(formIdCreate);
       if (result.status) {
@@ -55,7 +56,7 @@ export default function page() {
             setLoad(false);
           });
       }
-    }else{
+    } else {
       toast.warning("Tiene errores en los inputs!");
     }
   };
@@ -73,6 +74,14 @@ export default function page() {
       setVisibleError2(true);
     } else {
       setVisibleError2(false);
+    }
+  };
+
+  const verifyAsunto = (val) => {
+    if (val.length < 4) {
+      setVisibleError3(true);
+    } else {
+      setVisibleError3(false);
     }
   };
 
@@ -103,7 +112,7 @@ export default function page() {
             />
             {visibleError1 && (
               <p style={{ color: "red", fontSize: "12px" }}>
-                Escriba un nombre largo
+                Escriba un nombre más largo!
               </p>
             )}
             <br />
@@ -137,10 +146,16 @@ export default function page() {
               placeholder="Escribe un asunto"
               value={interaction.asunto}
               required={true}
-              onChange={(e) =>
-                setInteraction({ ...interaction, asunto: e.target.value })
-              }
+              onChange={(e) => {
+                setInteraction({ ...interaction, asunto: e.target.value });
+                verifyAsunto(e.target.value);
+              }}
             />
+            {visibleError3 && (
+              <p style={{ color: "red", fontSize: "12px" }}>
+                Escriba un asunto más largo!
+              </p>
+            )}
             <br />
             <MyInput
               title="Mensaje"
@@ -156,7 +171,7 @@ export default function page() {
             />
             {visibleError2 && (
               <p style={{ color: "red", fontSize: "12px" }}>
-                Escriba un mensaje largo
+                Escriba un mensaje más largo!
               </p>
             )}
             <div className="container_button_contact">
