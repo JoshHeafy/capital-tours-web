@@ -19,8 +19,8 @@ export async function API(url, config = {}) {
     alert_error = true,
     headers = {},
     token = true,
-    // base = "http://localhost:5000";
-    base = "https://api-capital-tours.onrender.com";
+    base = "http://localhost:5000";
+    // base = "https://api-capital-tours.onrender.com";
 
   if (config.data) data = config.data;
   url = !config.url_base ? base + "/" + url : config.url_base + "/" + url;

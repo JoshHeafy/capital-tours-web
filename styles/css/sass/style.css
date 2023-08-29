@@ -1289,13 +1289,10 @@ body {
   .conductor-container {
     width: 100%;
   }
-  .conductor-container .container-inner {
-    box-sizing: border-box;
-    padding: 0 5%;
-    margin-bottom: 45px;
-    max-width: 100%;
+  .inner-container {
+    width: 100% !important;
   }
-  .conductor-container .container-inner .wrapper_items {
+  .wrapper_items {
     -moz-column-count: 1;
          column-count: 1;
   }
@@ -1429,6 +1426,9 @@ body {
     padding-right: 30px;
     background-color: var(--color-light);
     padding-left: 30px;
+  }
+  .contact_form input, .contact_form textarea {
+    width: 100%;
   }
 }
 :root {
@@ -1658,6 +1658,11 @@ body {
     margin: 8rem auto;
   }
 }
+@media screen and (max-height: 800px) {
+  .u-image {
+    margin: -81px auto 0 -49px !important;
+  }
+}
 :root {
   --color-primary: #4CE5B1;
   --color-danger: #ff7782;
@@ -1857,6 +1862,10 @@ body {
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
+  }
+  .container-consulta .divConsultaCampo {
+    margin: 0 !important;
+    width: 100% !important;
   }
 }
 :root {
