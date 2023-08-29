@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </Head>
-      <body className>
+      <body>
         <NavBar />
         {children}
       </body>
