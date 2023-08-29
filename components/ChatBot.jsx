@@ -47,7 +47,7 @@ export default function ChatBot() {
     if (!connected) {
       // let socketStart = new WebSocket("ws://localhost:2000/chat");
       let socketStart = new WebSocket(
-        "ws://websocket-chatbot.onrender.com/chat"
+        "wss://websocket-chatbot.onrender.com/chat"
       );
       socketStart.onopen = () => {
         setSocket(socketStart);
