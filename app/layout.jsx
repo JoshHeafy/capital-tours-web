@@ -3,6 +3,7 @@ import "@/styles/css/sass/style.css";
 import Head from "next/head";
 import "material-icons/iconfont/material-icons.css";
 import "@/public/icons/boxicons-2.1.4/css/boxicons.min.css";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "CapitalTours",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
       <body>
         <NavBar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
