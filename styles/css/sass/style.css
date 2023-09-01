@@ -2217,52 +2217,87 @@ body {
     margin-bottom: 2rem;
   }
 }
-.nosotros {
-  padding: 50px 0;
-}
-.nosotros .container {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-.nosotros .container .nosotros-heading {
-  margin-bottom: 20px;
-}
-.nosotros .container .mission-heading {
-  font-size: 20px;
-  margin-top: 40px;
-  margin-bottom: 10px;
-}
-.nosotros .container .nosotros-description,
-.nosotros .container .mission-description,
-.nosotros .container .services-list,
-.nosotros .container .why-us-list,
-.nosotros .container .contact-description,
-.nosotros .container .contact-info {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-.nosotros .container .services-heading,
-.nosotros .container .why-us-heading,
-.nosotros .container .contact-heading {
-  font-size: 20px;
-  margin-top: 40px;
-  margin-bottom: 10px;
-}
-.nosotros .container .services-list,
-.nosotros .container .why-us-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
-}
-.nosotros .container .services-list li,
-.nosotros .container .why-us-list li {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 10px;
+:root {
+  --color-primary: #4CE5B1;
+  --color-danger: #ff7782;
+  --color-success: #41f1b6;
+  --color-warning: #ffbb55;
+  --color-white: #fff;
+  --color-info-dark: #7d8da1;
+  --color-info-light: #dce1eb;
+  --color-dark: #363949;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-primary-opacity: #4ce5b187;
+  --color-primary-variant: #276579;
+  --color-dark-variant: #677483;
+  --color-background: #f6f6f9;
+  --card-border-radius: 2rem;
+  --border-radius-l: 0.4rem;
+  --border-radius-2: 0.8rem;
+  --border-radius-3: 1.2rem;
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+  --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
+.about-us {
+  height: 100%;
+  width: 100%;
+  padding: 3rem 0;
+  background: var(--color-white);
+}
+.about-us .about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about-us .about .title {
+  line-height: 7rem;
+}
+.about-us .about .title h2 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.about-us .about .content-about {
+  display: flex;
+  gap: 4rem;
+}
+.about-us .about .content-about img {
+  min-width: auto;
+  border-radius: 3rem;
+}
+.about-us .about .content-about .text {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.about-us .about .content-about .text h5 {
+  font-size: 1.5rem;
+}
+.about-us .about .content-about .text h5 span {
+  color: var(--color-primary);
+}
+.about-us .about .content-about .text p {
+  color: var(--color-dark-variant);
+  line-height: 1.5rem;
+}
+
+@media (max-width: 1080px) {
+  .content-about {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .content-about img {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .content-about .text {
+    padding: 0 1rem;
+  }
+}
 :root {
   --color-primary: #4CE5B1;
   --color-danger: #ff7782;
