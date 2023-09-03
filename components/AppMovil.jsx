@@ -33,7 +33,7 @@ export default function AppMovil() {
               </p>
               <div className="button_download">
                 <a
-                  href="https://link.storjshare.io/s/jv2eklsfv6cajtf6m6ddyeoahhkq/capital-tours/CapitalTours.apk?download=1"
+                  href="https://link.storjshare.io/s/jxm63vuypflfzyyrnvbb6cejmunq/capital-tours/CapitalTours.apk?download=1"
                   download="capital-tours.apk"
                   className="my_button_a"
                 >
