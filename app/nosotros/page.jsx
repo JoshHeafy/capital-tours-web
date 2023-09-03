@@ -32,7 +32,7 @@ export default function page() {
                 Dirección: Av. Mariscal Castilla & Av. Gral. Cordova Huancayo,
                 Perú
                 <br />
-                Teléfono: 914354014
+                Teléfono: 924700200
                 <br />
                 Horario de Atención: 8:30 am - 7:00 pm{" "}
               </p>
