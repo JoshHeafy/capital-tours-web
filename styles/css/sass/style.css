@@ -1521,6 +1521,7 @@ body {
   word-wrap: break-word;
 }
 .section-4 .clearfix .container-group .container-layout .text-2 {
+  text-align: justify;
   margin: 60px 26px 0 54px;
   font-weight: 400;
   line-height: 1.6;

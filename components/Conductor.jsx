@@ -4,15 +4,14 @@ export default function Conductor() {
       <div className="conductor-container">
         <div className="container-inner">
           <div>
-            <h4>PARA CONDUCTORES</h4>
+            <h4>PARA SUSCRIPTORES</h4>
             <h2>Le gustaria ganar con nosotros?</h2>
           </div>
           <div className="wrapper">
             <div className="wrapper_text">
-              ¡Únete a nuestro equipo de conductores y gana con nosotros!
-              Ofrecemos oportunidades de ingresos flexibles y justos. Únete a
-              nuestra plataforma confiable, donde podrás realizar viajes
-              frecuentes y ser parte de una comunidad en crecimiento. Recibirás
+              ¡Únete a nuestro equipo y gana con nosotros!
+              Ofrecemos oportunidades de documentos en regla. Únete a
+              nuestra plataforma confiable, donde podrás realizar pagos mensuales y ser parte de una comunidad en crecimiento. Recibirás
               apoyo y capacitación para brindar un servicio excepcional. No
               importa si eres nuevo o con experiencia, ¡únete hoy y descubre
               todas las posibilidades que tenemos para ti!
@@ -24,7 +23,7 @@ export default function Conductor() {
                   <li>Sin cargo</li>
                   <li>Pagos mensuales</li>
                   <li>Precio fijo</li>
-                  <li>Buena aplicación</li>
+                  <li>Bonus aplicación</li>
                   <li>Servicio estable</li>
                 </ul>
               </div>

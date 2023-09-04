@@ -20,11 +20,9 @@ export default function AppMovil() {
                 Nuestra aplicación móvil revolucionaria ofrece una experiencia
                 completa para conductores. Con solo unos toques en la pantalla,
                 podrás solicitar un conductor de manera conveniente y rápida.
-                Accede a los datos de tu suscripción, consulta tu historial de
-                pagos y verifica los pagos restantes de forma sencilla.
                 Simplifica tu experiencia como conductor y disfruta de todas las
                 funciones necesarias al alcance de tu mano. ¡Descarga nuestra
-                app y lleva el control de tus viajes y pagos de manera
+                app y lleva el control de tus pasajeros de manera
                 eficiente!
                 <br />
                 ¿Ya eres conductor?

@@ -11,11 +11,10 @@ export default function Servicio() {
                   <i className="price-tag material-icons">local_offer</i>
                 </div>
                 <h4 className="title">
-                  <a href="">Precios Justos</a>
+                  <a href="">Precio Cómodo</a>
                 </h4>
                 <p className="description">
-                  Precios acordados antes del trayecto, totalmente libres de sorpresas o de
-                  incrementos, sin importar la ruta o el tráfico. Somos una Empresa de Taxi 100% Peruana.
+                  Trabaja con nosotros tan solo con un pago que incluye un mes de tributo por adelantado, no te lo pierdas!
                 </p>
               </div>
             </div>
@@ -28,8 +27,7 @@ export default function Servicio() {
                   <a href="">Soporte y Atención</a>
                 </h4>
                 <p className="description">
-                  Optimizamos continuamente con mejoras nuestro aplicativo móvil y contamos
-                  con especialistas a tu disposición. Soporte las 24/7 Atendemos todos las 24 horas del dia, todos los dias de la semana y los 365 dias del año.
+                  Optimizamos continuamente con mejoras nuestra página web y contamos con asistencia virtual a tu disposición. Soporte chatbot las 24/7, todos los dias de la semana y los 365 dias del año.
                 </p>
               </div>
             </div>
@@ -40,10 +38,10 @@ export default function Servicio() {
                   <i className="check-tag material-icons">check_circle</i>
                 </div>
                 <h4 className="title">
-                  <a href="">Experiencia y confianza en cada trayecto</a>
+                  <a href="">Experiencia y confianza</a>
                 </h4>
                 <p className="description">
-                  Nuestros conductores pasan por rigurosas evaluaciones psicológicas y verificaciones de antecedentes penales. Ofrecen un trato amable y profesional en cada viaje.
+                  Nuestra administracion hace pruebas rigurosas y admite solo a vehiculos con todos sus documentos en regla.
                 </p>
               </div>
             </div>
@@ -56,7 +54,7 @@ export default function Servicio() {
                   <a href="">Garantía y Calidad</a>
                 </h4>
                 <p className="description">
-                  Como suscriptor, tendrás acceso a una calidad sin igual en nuestros servicios de taxis. Podrás disfrutar de vehículos bien mantenidos, limpios y cómodos, así como de conductores profesionales y corteses que se esfuerzan por brindarte la mejor experiencia posible.
+                  Como suscriptor, tendrás acceso a una tarjeta de circulación con la cual podrás trabajar libremente como taxista por la ciudad.
                 </p>
               </div>
             </div>
