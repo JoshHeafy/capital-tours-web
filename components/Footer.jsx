@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -9,11 +11,6 @@ export default function Footer() {
             <h2 className="footer__title">
               Capital Tours opera en toda la ciudad de Huancayo
             </h2>
-            {/* <div className="container-button">
-              <Link className="footerNav__cta button-2" href="/solicitar">
-                Contacto
-              </Link>
-            </div> */}
           </div>
           <div className="footer-grid">
             <div className="fcol-2">
@@ -65,26 +62,9 @@ export default function Footer() {
               aria-hidden="true"
             />
           </Link>
-          © 2023 - Empresa Capital Tours. Todos los derechos reservados.
+          © {currentYear} - Empresa Capital Tours. Todos los derechos
+          reservados.
         </small>
-
-        {/* <ul className="subFooter__sn">
-        <li className="sn">
-          <Link href="https://twitter.com/remarkgroup" className="sn__link"  rel="noopener">
-            <span className="sr-only">Twitter</span>
-          </Link>
-
-          <img src="/img/icons/fb.png" className="icon icon--tw" width="35" height="35" viewBox="0 0 20 16" fill="#1da1f2"
-            aria-hidden="true" />
-        </li>
-
-        <li className="sn">
-          <Link href="https://www.linkedin.com/company/remarkgroup" className="sn__link"  rel="noopener">
-          </Link>
-          <img src="/img/icons/twitter.png" className="icon icon--tw" width="35" height="35" viewBox="0 0 20 16"
-            fill="#1da1f2" aria-hidden="true" />
-        </li>
-      </ul> */}
       </div>
     </footer>
   );
