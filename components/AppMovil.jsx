@@ -31,7 +31,7 @@ export default function AppMovil() {
               </p>
               <div className="button_download">
                 <a
-                  href="https://drive.google.com/uc?export=download&id=1y7--3MMZAD1_DCwrUEETzerWf26MQvCP"
+                  href="https://drive.google.com/uc?export=download&id=1jpZ34uP3OrLr8D2mndr8JiHJuv6-UTJM"
                   download="capital-tours.apk"
                   className="my_button_a"
                 >
