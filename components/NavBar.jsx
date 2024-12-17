@@ -94,13 +94,13 @@ export default function NavBar() {
                 </li>
                 <li className="ul__li">
                   <Link
-                    href="/solicitar"
+                    href="/comment"
                     onClick={() => {
                       activeBar(3), menuMovilClose();
                     }}
                     className={selected === 3 ? "li__text active" : "li__text"}
                   >
-                    Solicitar
+                    Comentarios y Consultas
                   </Link>
                 </li>
                 <li className="ul__li">

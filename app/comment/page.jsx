@@ -94,7 +94,7 @@ export default function page() {
       <ToastContainer />
       <div className="contact_form">
         <div className="formulario">
-          <h1 className="form_title">Registre su solicitud</h1>
+          <h1 className="form_title">Formulario de Comentarios y Consultas</h1>
           <h3 className="form_subtitle">
             Escríbenos y en breve los pondremos en contacto contigo
           </h3>
