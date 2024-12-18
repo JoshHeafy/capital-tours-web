@@ -1,126 +1,70 @@
-"use client";
+"use client";  // Marca este archivo como un componente de cliente
+
+import { useRouter } from "next/navigation";
 import MyButton from "@/components/buttons/MyButton";
 import { toCapitalice } from "@/library/functions";
-import { useSearchParams, useRouter } from "next/navigation";
-export default function info() {
+
+export default function Info() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const search = searchParams.get("data");
-  const data = JSON.parse(search);
+  const data = JSON.parse(sessionStorage.getItem("consultaData"));
 
-  const inscripcion = data.inscripcion;
-  const periodo = data.periodo_inscripcion;
-  const propietario = data.propietario;
-  const status_pago = data.status_pago;
+  // Si no se encuentra la data en sessionStorage, redirige a la página de consulta
+  if (!data) {
+    router.push("/consulta");
+    return null;
+  }
 
+  const { inscripcion, propietario, status_pago } = data;
+
+  // Verificamos si "inscripcion.periodo" es un arreglo y tiene elementos
   const estado =
-    periodo[0].estado == 1
-      ? "ACTIVO"
-      : periodo[0].estado == 0
-      ? "TIENE UN PAGO PRÓXIMO"
-      : "TIENE UN PAGO ATRASADO";
+    inscripcion?.periodo?.length > 0
+      ? inscripcion.periodo[0].estado === 1
+        ? "ACTIVO"
+        : inscripcion.periodo[0].estado === 0
+        ? "TIENE UN PAGO PRÓXIMO"
+        : "TIENE UN PAGO ATRASADO"
+      : "Estado no disponible";  // Si no hay datos, mostramos un estado predeterminado
+
+  // Verificación de colorEstado con los mismos criterios
   const colorEstado =
-    periodo[0].estado == 1
-      ? "#41f1b6"
-      : periodo[0].estado == 0
-      ? "#ffbb55"
-      : "#ff7782";
+    inscripcion?.periodo?.length > 0
+      ? inscripcion.periodo[0].estado === 1
+        ? "#41f1b6"
+        : inscripcion.periodo[0].estado === 0
+        ? "#ffbb55"
+        : "#ff7782"
+      : "#ccc";  // Si no hay datos, asignamos un color neutro
 
   return (
-    <>
-      <div className="container-consulta">
-        <div className="row-consulta">
-          <div className="offset">
-            <div>
-              <h1>Consulta tu información</h1>
-            </div>
-            <div className="panel panel-primary">
-              <div className="panel-heading">Criterios de la búsqueda</div>
-              <div className="list-group">
-                <div className="list-group-item">
-                  <div className="row">
-                    <div className="row-col">
-                      <p className="item-heading">Numero de Placa:</p>
-                    </div>
-                    <div className="row-col">
-                      <p className="item-heading">
-                        {inscripcion.numero_placa.toUpperCase()}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="list-group-item">
-                  <div className="row">
-                    <div className="row-col">
-                      <p className="item-heading">Numero de Flota:</p>
-                    </div>
-                    <div className="row-col">
-                      <p className="item-heading">{inscripcion.numero_flota}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="list-group-item">
-                  <div className="row">
-                    <div className="row-col">
-                      <p className="item-heading">Propietario:</p>
-                    </div>
-                    <div className="row-col">
-                      <p className="item-heading">
-                        {toCapitalice(propietario.nombre_propietario)}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="list-group-item">
-                  <div className="row">
-                    <div className="row-col">
-                      <p className="item-heading">Estado del servicio:</p>
-                    </div>
-                    <div className="row-col">
-                      <span
-                        className="status-mark"
-                        style={{
-                          background: colorEstado,
-                        }}
-                      >
-                        {estado}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="list-group-item">
-                  <div className="row">
-                    <div className="row-col">
-                      <p className="item-heading">Monto a pagar:</p>
-                    </div>
-                    <div className="row-col">
-                      <p className="item-heading">S/. {inscripcion.importe}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="list-group-item">
-                  <div className="row">
-                    <div className="row-col">
-                      <p className="item-heading">Próxima fecha de pago:</p>
-                    </div>
-                    <div className="row-col">
-                      <p className="item-heading">{status_pago.proximo_pago}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="btn-container">
-              <MyButton
-                black={true}
-                name="Regresar"
-                type="button"
-                onClick={() => router.push("/consulta")}
-              />
+    <div className="container-consulta">
+      <h1>Detalles de la Consulta</h1>
+      <div className="panel panel-primary">
+        <div className="panel-body">
+          <div className="list-group">
+            <div className="list-group-item">
+              <p><strong>Numero de Placa:</strong> {inscripcion.numero_placa.toUpperCase()}</p>
+              <p><strong>Numero de Flota:</strong> {inscripcion.numero_flota}</p>
+              <p><strong>Propietario:</strong> {toCapitalice(propietario.nombre_propietario)}</p>
+              <p><strong>Estado del Servicio:</strong>
+                <span style={{ background: colorEstado, color: "#fff", padding: "3px 10px" }}>
+                  {estado}
+                </span>
+              </p>
+              <p><strong>Monto a Pagar:</strong> S/. {inscripcion.importe}</p>
+              <p><strong>Próxima Fecha de Pago:</strong> {status_pago.proximo_pago}</p>
             </div>
           </div>
         </div>
       </div>
-    </>
+      <div className="btn-container">
+        <MyButton
+          black={true}
+          name="Regresar"
+          type="button"
+          onClick={() => router.push("/consulta")}
+        />
+      </div>
+    </div>
   );
 }
